@@ -1,0 +1,3 @@
+[submodule "front_cp"]
+	path = front_cp
+	url = ./front_cp
