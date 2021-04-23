@@ -17,19 +17,21 @@ services:
         WORKDIR: $WORKDIR
     environment:
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      API_DOMAIN: "localhost:$FRONT_PORT"       # この値がENV["API_DOMAIN"]に入る
     volumes:
       - ./api:/$WORKDIR
     depends_on:
       - db
     ports:
       - "$API_PORT:$CONTAINER_PORT"
-
+    
   front:
     build:
       context: ./front
       args:
         WORKDIR: $WORKDIR
         CONTAINER_PORT: $CONTAINER_PORT
+        API_URL: "http://localhost:$API_PORT" # 追加    
     command: yarn run dev
     volumes:
       - ./front:/$WORKDIR
