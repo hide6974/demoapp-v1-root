@@ -1,0 +1,11 @@
+{
+    "include": ["./front/**/*"],
+    "compilerOptions": {
+      "module": "es2020",
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["front/*"]
+      }
+    },
+    "exclude": ["node_modules", "dist"]
+  }
